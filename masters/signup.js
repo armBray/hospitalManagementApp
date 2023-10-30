@@ -26,9 +26,9 @@ router.post('/', [
         var psw = req.body.password;
         // res.send({username, email, psw});
         db.signup(username, email, psw, email_status);
-        res.send('after sign up');
-        // var token = randomToken(8);
-        // db.verify(username,email,token);
+        // res.send('after sign up');
+        var token = randomToken(8);
+        db.verify(username,email,token);
 
         // db.getuserid(email, (err,res) => {
         //     var id = result[0].id;
