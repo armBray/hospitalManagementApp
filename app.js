@@ -11,9 +11,11 @@ var expressValidator    = require('express-validator')
 var sweetalert          = require('sweetalert2')
 var bodyParser          = require('body-parser')
 const http              = require('http')
+
 var db                  = require('./models/db_master')
 var signup              = require('./masters/signup')
 var login               = require('./masters/login')
+var verify              = require('./masters/verify')
 
 var app = express()
 app.set('view engine', 'ejs')
@@ -30,3 +32,4 @@ server.listen(PORT,() => console.log(`server is running on port ${PORT}`))
 
 app.use('/signup', signup)
 app.use('/login', login)
+app.use('/verify', verify)

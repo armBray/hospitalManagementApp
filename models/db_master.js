@@ -37,6 +37,16 @@ module.exports.verify = function(username, email, token, callback){
     dbcon.query(query, callback)       
 }
 
+module.exports.matchtoken = function(id, token, callback){
+    var query = 'SELECT * FROM `verify` WHERE token = "'+token+'" and id = "'+id+'"'
+    dbcon.query(query, callback)       
+}
+
+module.exports.updateverify = function(email, email_status, callback){
+    var query = 'UPDATE `users` SET `email_status` = "'+email_status+'" WHERE `email` = "'+email+'"'
+    dbcon.query(query, callback)       
+}
+
 module.exports.getuserid = function(email, callback){
     var query = 'SELECT * FROM `verify` WHERE email = "'+email+'"'
     dbcon.query(query, callback)       
