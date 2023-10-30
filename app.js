@@ -13,6 +13,7 @@ var bodyParser          = require('body-parser')
 const http              = require('http')
 var db                  = require('./models/db_master')
 var signup              = require('./masters/signup')
+var login               = require('./masters/login')
 
 var app = express()
 app.set('view engine', 'ejs')
@@ -28,3 +29,4 @@ const PORT = process.env.PORT || 3001
 server.listen(PORT,() => console.log(`server is running on port ${PORT}`))
 
 app.use('/signup', signup)
+app.use('/login', login)
