@@ -29,31 +29,31 @@ router.post('/', [
         // res.send('after sign up');
         var token = randomToken(8);
         db.verify(username,email,token);
+        // res.send('user added to verify db');
+        db.getuserid(email, (err,result) => {
+            // var id = result[0].id;
+            // var output = `<p>Dear ${username},</p>
+            // <p>Thanks for sign up. Your verification id and token is given below:</p>
+            // <ul>
+            // <li>User ID: ${id}</li>
+            // <li>Token: ${token}</li>
+            // </ul>
+            // <p>verify link: <a href="http://localhost:3000/verify">Verify</a></p>
+            // <p><b>This is automatically generated mail</b></p>
+            // `;
 
-        // db.getuserid(email, (err,res) => {
-        //     var id = result[0].id;
-        //     var output = `<p>Dear ${username},</p>
-        //     <p>Thanks for sign up. Your verification id and token is given below:</p>
-        //     <ul>
-        //     <li>User ID: ${id}</li>
-        //     <li>Token: ${token}</li>
-        //     </ul>
-        //     <p>verify link: <a href="http://localhost:3000/verify">Verify</a></p>
-        //     <p><b>This is automatically generated mail</b></p>
-        //     `;
+            // TO SEND EMAIL - IMPLEMENTATION NOT FINISHED
+            // var transporter = nodemailer.createTransport({
+            //     host: "smtp.gmail.com",
+            //     port: 465,
+            //     secure: true,
+            //     auth: {
+            //         user: "armandosaxam@gmail.com"
+            //     }
+            // })
 
-        //     // TO SEND EMAIL - IMPLEMENTATION NOT FINISHED
-        //     // var transporter = nodemailer.createTransport({
-        //     //     host: "smtp.gmail.com",
-        //     //     port: 465,
-        //     //     secure: true,
-        //     //     auth: {
-        //     //         user: "armandosaxam@gmail.com"
-        //     //     }
-        //     // })
-
-        //     res.send("check your email for token to verify!");
-        // });
+            res.send("check your email for token to verify!");
+        });
     })
 
     module.exports = router;
