@@ -59,7 +59,7 @@ router.post('/', [
                 subject: "Hello ✔", // Subject line
                 text: "Successfully Register with us.", // plain text body
                 html: output, // html body
-              }
+            }
         
         
             transporter.sendMail(message).then((info) => {

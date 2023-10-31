@@ -51,3 +51,17 @@ module.exports.getuserid = function(email, callback){
     var query = 'SELECT * FROM `verify` WHERE email = "'+email+'"'
     dbcon.query(query, callback)       
 }
+
+//define findOne from reset.js
+module.exports.findOne = function(email, callback){
+    var query = 'SELECT * FROM `users` WHERE email = "'+email+'"'
+    dbcon.query(query, callback);
+    console.log(query);
+}
+
+//define temp from reset.js
+module.exports.temp = function(id,email,token, callback){
+    var query = 'INSERT INTO `temp`(`id`,`email`,`token`) VALUES("'+id+'","'+email+'","'+token+'")'
+    dbcon.query(query, callback);
+    console.log(query);
+}

@@ -1,2 +1,6 @@
 https://www.section.io/engineering-education/session-management-in-nodejs-using-expressjs-and-express-session/
 https://medium.com/@hcach90/using-express-validator-for-data-validation-in-nodejs-6946afd9d67e#:~:text=Apr%2026,to%20validate%20API%20request%20parameters.
+
+/*** Nodemailer ***/
+https://www.youtube.com/watch?v=lBRnLXwjLw0
+https://nodemailer.com/about/
