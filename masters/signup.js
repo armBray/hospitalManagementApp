@@ -1,12 +1,13 @@
 var express             = require('express')
-var router = express.Router()
 var nodemailer          = require('nodemailer')
 var bodyParser          = require('body-parser')
 var randomToken         = require('random-token')
 var mysql               = require('mysql')
-var db                  = require.main.require('./models/db_master')
 const {query, validationResult} = require('express-validator')
 
+var db                  = require.main.require('./models/db_master')
+
+var router = express.Router()
 router.use(bodyParser.urlencoded({extended:true}));
 router.use(bodyParser.json())
 

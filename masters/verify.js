@@ -1,8 +1,9 @@
 var express = require('express')
-var router  = express.Router()
 var bodyParser  = require('body-parser')
+
 var db      = require.main.require('./models/db_master')
 
+var router  = express.Router()
 router.use(bodyParser.urlencoded({extended:true}));
 router.use(bodyParser.json())
 

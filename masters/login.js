@@ -1,12 +1,11 @@
 var express             = require('express')
-var router = express.Router()
 var bodyParser          = require('body-parser')
 var mysql               = require('mysql')
-var db                  = require.main.require('./models/db_master')
 var session             = require('express-session')
 var sweetalert          = require('sweetalert2')
 const {check, validationResult} = require('express-validator')
 
+var db                  = require.main.require('./models/db_master')
 var dbcon = mysql.createConnection({
     host:       'localhost',
     user:       'root',
@@ -14,6 +13,7 @@ var dbcon = mysql.createConnection({
     database:   'HospitalManagementApp'
 })
 
+var router = express.Router()
 router.use(session({
     secret: 'secret',
     resave: true,
