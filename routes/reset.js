@@ -8,9 +8,11 @@ const { info } = require('console');
 var db      = require.main.require('./models/db_master')
 
 var router  = express.Router();
-// router.get('/', (req, res) => {
-//     res.render(reset.ejs) 
-// })
+
+router.get('/', (req, res) => {
+    res.send('inside reset')
+    // res.render(reset.ejs);
+})
 
 router.post('/', (req, res) => {
     var email = req.body.email;

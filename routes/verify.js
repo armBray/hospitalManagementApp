@@ -7,9 +7,10 @@ var router  = express.Router()
 router.use(bodyParser.urlencoded({extended:true}));
 router.use(bodyParser.json())
 
-// router.get('/', (req, res) => {
-//     res.render(verify.ejs) 
-// })
+router.get('/', (req, res) => {
+    res.send('inside verify')
+    // res.render(verify.ejs) 
+})
 
 router.post('/', (req, res) => {
     var id      = req.body.id;

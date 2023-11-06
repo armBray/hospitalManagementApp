@@ -22,14 +22,19 @@ router.use(session({
 router.use(bodyParser.urlencoded({extended:true}));
 router.use(bodyParser.json())
 
+router.get('/', (req, res) => {
+    res.send('inside login');
+    // res.render('login.ejs');
+});
+
 router.post('/', [
     check('username').notEmpty().withMessage('username is required'),
     check('password').notEmpty().withMessage('password is required')
     ], (req, res) => {
-        // console.log(req.body);
+        console.log(req.body);
         const errors = validationResult(req);
-        // console.log(errors);
-        // console.log(errors.isEmpty());
+        console.log(errors);
+        console.log(errors.isEmpty());
         if (!errors.isEmpty()) {
             return res.status(422).json({errors:errors.array()})
         }

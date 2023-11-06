@@ -66,3 +66,35 @@ module.exports.temp = function(id,email,token, callback){
     dbcon.query(query, callback);
     console.log(query);
 }
+
+//define from doctors.js
+module.exports.add_doctor = function(first_name, last_name, email, dob, gender, address, phone, image, department, biography, callback){
+    var query = 'INSERT INTO `doctor`(`first_name`,`last_name`,`email`,`dob`,`gender`,`address`,`phone`,`image`,`department`,`biography`) VALUES("'+first_name+'","'+last_name+'","'+email+'","'+dob+'","'+gender+'","'+address+'","'+phone+'","'+image+'","'+department+'","'+biography+'")'
+    dbcon.query(query, callback);
+    console.log(query);
+}
+module.exports.getAllDoc = function(callback){
+    var query = 'SELECT * FROM doctor'
+    dbcon.query(query, callback)       
+}
+
+module.exports.editDoc = function(id, first_name, last_name, email, dob, gender, address, phone, department, biography, callback){
+    var query = 'UPDATE `doctor` set `first_name` = "'+first_name+'",`last_name` = "'+last_name+'",`email` = "'+email+'",`dob` = "'+dob+'",`gender` = "'+gender+'",`address` = "'+address+'",`phone` = "'+phone+'",`department` = "'+department+'",`biography` = "'+biography+'" WHERE id = "'+id+'"'
+    dbcon.query(query, callback);
+    console.log(query);
+}
+module.exports.getDocbyId = function(id, callback){
+    var query = 'SELECT * FROM doctor WHERE id = "'+id+'"'
+    dbcon.query(query, callback);
+    console.log(query);      
+}
+module.exports.deleteDoc = function(id, callback){
+    var query = 'DELETE FROM doctor WHERE id = "'+id+'"'
+    dbcon.query(query, callback);
+    console.log(query);      
+}
+module.exports.searchDoc = function(first_name, callback){
+    var query = 'SELECT * FROM doctor WHERE first_name like "%'+first_name+'%"'
+    dbcon.query(query, callback);
+    console.log(query);      
+}
